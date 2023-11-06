@@ -2,24 +2,57 @@
 </script>
 
 <template>
-    <div class="container">
-        <nav class="row">
-            <ul class="col display-flex header-gender">
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
+    <header class="container">
+        <nav class="navbar">
+            <ul class="gender-list">
+                <li><a href="#">Donna</a></li>
+                <li><a href="#">Uomo</a></li>
+                <li><a href="#">Bambini</a></li>
             </ul>
-            <figure class="col display-flex ">
-                <img src="/img/boolean-logo.pngS" alt="" class="header-logo">
+            <figure class="logo">
+                <img src="/img/boolean-logo.png" alt="" class="header-logo">
             </figure>
-            <ul class="col display-flex header-icons">
+            <ul class="tools-list">
                 <li><a href="#">&star;</a></li>
                 <li><a href="#">&star;</a></li>
                 <li><a href="#">&star;</a></li>
             </ul>
         </nav>
-    </div>
+    </header>
 </template>
 
 <style lang="scss" scoped>
+@use '../styles/partials/colors-palette' as *;
+.container {
+    width: 100%;
+    margin: 0 auto;
+    color: $white-text;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    .gender-list {
+        display: flex;
+        gap: 8px;
+        a {
+            line-height: 36px;
+        }
+    }
+
+    .logo{
+        width: 100px;
+    }
+
+    .tools-list {
+        display: flex;
+        gap: 8px;
+        a {
+            line-height: 36px;
+        }
+    }
+
+}
 </style>
