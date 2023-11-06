@@ -20,3 +20,8 @@ img {
 figure > img {
     display: block;
 }
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
