@@ -1,0 +1,27 @@
+<script>
+</script>
+
+<template>
+    <div class="card">
+        <div class="card-image position-rel">
+            <figure>
+                <img src="/img/1b.webp" alt="">
+                <img src="/img/1.webp" alt="" class="position-abs vanish">
+            </figure>
+            <div class="card-image-like">
+                <p class="position-abs">&hearts;</p>
+            </div>
+            <div class="card-image-discount position-abs">
+                <span class="percentage">50%</span>
+                <span>sostenibilità</span>
+            </div>
+        </div>
+        <div class="card-title">
+            <p>Lorem, ipsum.</p>
+            <p class="small-title">Lorem ipsum</p>
+            <p><span class="color-red">23.50</span> <span class="line">20.00</span></p>
+        </div>
+    </div>
+</template>
+
+<style lang="scss" scoped></style>
