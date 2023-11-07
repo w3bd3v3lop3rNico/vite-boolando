@@ -24,9 +24,9 @@ export default {
             <div class="card-image-icon">
                 &hearts;
             </div>
-            <div class="card-image-discount position-abs">
-                <span class="percentage">50%</span>
-                <span>sostenibilità</span>
+            <div class="card-image-tags" >
+                <p :class="badge.type" v-for="(badge, index) in item.badges"
+                :key="index">{{ badge.value }}</p>
             </div>
         </div>
         <div class="card-title">
@@ -63,10 +63,24 @@ export default {
         top: 5px;
         right: 5px;
     }
-    .card-image-discount {
+    .card-image-tags {
         position: absolute;
-        bottom: 5px;
-        left: 5px;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        bottom: 25%;
+        font-size: 10px;
+        gap: 2px;
+        color: white;
+    }
+
+    .tag {
+        padding: 3px 10px;
+        background-color: green;
+    }
+    .discount {
+        padding: 3px 10px;
+        background-color: red;
     }
 }
 
