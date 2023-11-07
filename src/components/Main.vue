@@ -22,4 +22,12 @@ export default {
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.row {
+    row-gap: 20px;
+}
+.col-4 {
+    flex-basis: calc((100% * 4) / 12);
+    padding: 10px;
+}
+</style>

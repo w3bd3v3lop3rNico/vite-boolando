@@ -3,10 +3,10 @@
 
 <template>
     <div class="card">
-        <div class="card-image position-rel">
-            <figure>
+        <div class="card-image-body">
+            <figure class="card-figure">
                 <img src="/img/1b.webp" alt="">
-                <img src="/img/1.webp" alt="" class="position-abs vanish">
+                <img src="/img/1.webp" alt="" class="card-a">
             </figure>
             <div class="card-image-like">
                 <p class="position-abs">&hearts;</p>
@@ -24,4 +24,19 @@
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.card-figure {
+    position: relative;
+
+     
+    .card-a {
+        position: absolute;
+        top: 0;
+        &:hover {
+            opacity: 0;
+        }
+        
+    }
+}
+
+</style>
