@@ -1,5 +1,6 @@
 <script>
 import CardProduct from './CardProduct.vue';
+import productsJson from '../db.json';
 
 export default {
     components: {
@@ -7,19 +8,25 @@ export default {
     },
     data() {
         return {
-            
-
         }
     },
+    data() {
+        return {
+            products: productsJson.products,
+        }
+    },
+    created() {
+        console.log(this.products)
+    }
 }
 </script>
 
 <template>
     <div class="container">
         <div class="row">
-            <div class="col-4" v-for="n in 6" :key="n">
-                <CardProduct />
-            </div>
+            <CardProduct v-for="product in products" 
+            :item="product"
+            :key="product.id"/>
         </div>
     </div>
 </template>
@@ -27,9 +34,5 @@ export default {
 <style lang="scss" scoped>
 .row {
     row-gap: 20px;
-}
-.col-4 {
-    flex-basis: calc((100% * 4) / 12);
-    padding: 10px;
 }
 </style>

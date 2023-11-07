@@ -1,12 +1,25 @@
 <script>
+export default {
+    data() {
+        return {
+
+        }
+    },
+    props: {
+        item: {
+            tipe: Object,
+            required: true
+        }
+    }
+}
 </script>
 
 <template>
-    <div class="card">
+    <div class="card col-4">
         <div class="card-image-body">
             <figure class="card-figure">
-                <img src="/img/1b.webp" alt="">
-                <img src="/img/1.webp" alt="" class="card-a">
+                <img :src="'/img/' + item.backImage" alt="">
+                <img :src="'/img/' + item.frontImage" alt="" class="card-a">
             </figure>
             <div class="card-image-icon">
                 &hearts;
@@ -17,14 +30,18 @@
             </div>
         </div>
         <div class="card-title">
-            <p>Lorem, ipsum.</p>
-            <p class="small-title">Lorem ipsum</p>
-            <p><span class="color-red">23.50</span> <span class="line">20.00</span></p>
+            <p> {{ item.brand }}</p>
+            <p class="small-title">{{ item.name }}</p>
+            <p><span class="color-red">{{ item.price }}</span></p>
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
+.col-4 {
+    flex-basis: calc((100% * 4) / 12);
+    padding: 10px;
+}
 .card-image-body {
     position: relative;
     .card-figure {
