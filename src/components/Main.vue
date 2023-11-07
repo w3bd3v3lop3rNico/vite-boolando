@@ -1,14 +1,16 @@
 <script>
 import CardProduct from './CardProduct.vue';
+
 export default {
     components: {
         CardProduct
     },
     data() {
         return {
+            
 
         }
-    }
+    },
 }
 </script>
 

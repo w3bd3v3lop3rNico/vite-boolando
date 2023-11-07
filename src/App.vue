@@ -3,6 +3,7 @@
 import Header from './components/Header.vue';
 import Main from './components/Main.vue';
 import Footer from './components/Footer.vue';
+import productsJson from '../db.json'
 
 export default {
   components: {
@@ -12,8 +13,11 @@ export default {
   },
   data() {
     return {
-
+      products: productsJson
     }
+  },
+  created() {
+    console.log(this.products)
   }
 }
 
@@ -24,9 +28,8 @@ export default {
     <Header />
   </section>
 
-<Main />
-<Footer />
-
+  <Main />
+  <Footer />
 </template>
 
 <style lang="scss">
@@ -36,5 +39,4 @@ export default {
 .header {
   background-color: #FF6900;
 }
-
 </style>
