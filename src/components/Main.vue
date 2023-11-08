@@ -1,6 +1,7 @@
 <script>
 import CardProduct from './CardProduct.vue';
-import productsJson from '../db.json';
+// import productsJson from '../db.json';
+import { store } from '../store.js'
 
 export default {
     components: {
@@ -8,15 +9,12 @@ export default {
     },
     data() {
         return {
-        }
-    },
-    data() {
-        return {
-            products: productsJson.products,
+            // products: productsJson.products,
+            store : store.products
         }
     },
     created() {
-        // console.log(this.products)
+        console.log(this.store)
     }
 }
 </script>
@@ -24,7 +22,7 @@ export default {
 <template>
     <div class="container">
         <div class="row">
-            <CardProduct v-for="product in products" 
+            <CardProduct v-for="product in store" 
             :item="product"
             :key="product.id"/>
         </div>

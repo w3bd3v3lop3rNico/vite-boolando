@@ -6,8 +6,13 @@ export default {
     },
     props: {
         item: {
-            tipe: Object,
+            tipe: Array,
             required: true
+        }
+    },
+    methods: {
+        getDiscountedPrice(item) {
+
         }
     }
 }
