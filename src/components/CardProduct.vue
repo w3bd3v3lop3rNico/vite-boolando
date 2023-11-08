@@ -2,7 +2,6 @@
 export default {
     data() {
         return {
-
         }
     },
     props: {
@@ -21,8 +20,8 @@ export default {
                 <img :src="'/img/' + item.backImage" alt="">
                 <img :src="'/img/' + item.frontImage" alt="" class="card-a">
             </figure>
-            <div class="card-image-icon">
-                &hearts;
+            <div class="card-image-icon" :class="item.isInFavorites ? 'favourite' : ''">
+                <font-awesome-icon icon="fa-solid fa-heart" />
             </div>
             <div class="card-image-tags" >
                 <p :class="badge.type" v-for="(badge, index) in item.badges"
@@ -46,22 +45,26 @@ export default {
     position: relative;
     .card-figure {
     position: relative;
-    .card-a {
-        position: absolute;
-        top: 0;
-        &:hover {
+        .card-a {
+            position: absolute;
+            top: 0;
+            &:hover {
             opacity: 0;
+            }
         }
-        
     }
-    
-    
+    .favourite {
+        color: red;
     }
     .card-image-icon {
         position: absolute;
         z-index: 999;
         top: 5px;
-        right: 5px;
+        right: 0;
+        background-color: white;
+        padding: 5px;
+        display: flex;
+        align-items: center;
     }
     .card-image-tags {
         position: absolute;

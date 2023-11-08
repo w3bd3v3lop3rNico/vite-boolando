@@ -22,6 +22,7 @@ export default {
 
   <Main />
   <Footer />
+  
 </template>
 
 <style lang="scss">

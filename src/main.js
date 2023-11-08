@@ -8,8 +8,28 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-// import {  } from '@fortawesome/free-solid-svg-icons'
+import { 
+    faHeart,
+    faUser,
+    faBagShopping,
+    // fabSquareInstagram,
+    // faSquareFacebook,
+    // faSquareXTwitter,
+    // faSquarePinterst,
+    // faSquareYoutube
+} from '@fortawesome/free-solid-svg-icons'
 
-// library.add()
+library.add(
+    faHeart,
+    faUser,
+    faBagShopping,
+    // fabSquareInstagram,
+    // fabSquareFacebook,
+    // faSquareXTwitter,
+    // faSquarePinterst,
+    // faSquareYoutube
+)
+    
 
-createApp(App).component('font-awsome-icon', FontAwesomeIcon).mount('#app')
+
+createApp(App).component('font-awesome-icon', FontAwesomeIcon).mount('#app')

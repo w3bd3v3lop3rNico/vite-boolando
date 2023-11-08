@@ -13,9 +13,9 @@
                 <img src="/img/boolean-logo.png" alt="" class="header-logo">
             </figure>
             <ul class="tools-list">
-                <li><a href="#">&star;</a></li>
-                <li><a href="#">&star;</a></li>
-                <li><a href="#">&star;</a></li>
+                <li><a href="#"><font-awesome-icon icon="fa-regular fa-user" /></a></li>
+                <li><a href="#"><font-awesome-icon icon="fa-regular fa-heart" /></a></li>
+                <li><a href="#"><font-awesome-icon icon="fa-solid fa-bag-shopping" /></a></li>
             </ul>
         </nav>
     </header>
