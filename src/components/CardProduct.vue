@@ -11,9 +11,26 @@ export default {
         }
     },
     methods: {
-        getDiscountedPrice(item) {
-
+        getDiscountedPrice() { 
+            let discountPrice = 0
+            for(let i = 0; i < this.item.badges.length; i++) {
+                // console.log(i)
+                const currentBadge = this.item.badges[i];
+                // console.log(currentBadge) 
+                if (currentBadge.type === 'discount') {
+                    let discountValue = parseInt(currentBadge.value) * -1;
+                    // console.log(discountValue);
+                    discountPrice = (this.item.price / 100) * discountValue;
+                }  
+                // console.log(discountPrice)
+            }
+            const finalPrice = this.item.price - discountPrice;
+            // console.log(finalPrice)
+            return finalPrice.toFixed(2)
         }
+    },
+    created() {
+        // this.getDiscountedPrice(this.item)
     }
 }
 </script>
@@ -36,7 +53,7 @@ export default {
         <div class="card-title">
             <p> {{ item.brand }}</p>
             <p class="small-title">{{ item.name }}</p>
-            <p><span class="color-red">{{ item.price }}</span></p>
+            <p><span v-show="item.price != getDiscountedPrice()">{{ item.price }}</span><span>{{ getDiscountedPrice() }}</span></p>
         </div>
     </div>
 </template>

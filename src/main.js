@@ -8,27 +8,23 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 /* import font awesome icon component */
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-import { 
-    faHeart,
+import { faHeart as fasFaHeart, faBagShopping } from '@fortawesome/free-solid-svg-icons';
+
+import { faUser, faHeart as farFaHeart } from '@fortawesome/free-regular-svg-icons';
+
+// import {  faSquareInstagram, faSquareFacebook, faSquareXTwitter, faSquarePinterst, faSquareYoutube } from '@fortawesome/free-brands-svg-icons';
+
+library.add(
+    fasFaHeart,
+    farFaHeart,
     faUser,
     faBagShopping,
-    // fabSquareInstagram,
+    // faSquareInstagram,
     // faSquareFacebook,
     // faSquareXTwitter,
     // faSquarePinterst,
     // faSquareYoutube
-} from '@fortawesome/free-solid-svg-icons'
-
-library.add(
-    faHeart,
-    faUser,
-    faBagShopping,
-    // fabSquareInstagram,
-    // fabSquareFacebook,
-    // faSquareXTwitter,
-    // faSquarePinterst,
-    // faSquareYoutube
-)
+);
     
 
 

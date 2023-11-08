@@ -10,7 +10,7 @@ export default {
     data() {
         return {
             // products: productsJson.products,
-            store : store.products
+            store : store
         }
     },
     created() {
@@ -22,7 +22,7 @@ export default {
 <template>
     <div class="container">
         <div class="row">
-            <CardProduct v-for="product in store" 
+            <CardProduct v-for="product in store.products" 
             :item="product"
             :key="product.id"/>
         </div>
