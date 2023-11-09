@@ -8,9 +8,6 @@ import { store } from './store';
 
 
 export default {
-  data() {
-    
-  },
   components: {
     Header,
     Main,
@@ -20,7 +17,7 @@ export default {
     axios.get('http://localhost:3000/products')
     .then(res => {
       const products = res.data
-      console.log(res, products)
+      // console.log(res, products)
       store.products = products
     })
   }
@@ -35,7 +32,6 @@ export default {
 
   <Main />
   <Footer />
-  
 </template>
 
 <style lang="scss">

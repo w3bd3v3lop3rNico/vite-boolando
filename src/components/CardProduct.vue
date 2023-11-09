@@ -11,9 +11,12 @@ export default {
         }
     },
     methods: {
-        getDiscountedPrice() { 
+        // dichiaro la funzione
+        getDiscountedPrice() {
+            // mi salvo in una variabile il valore di default "0" da sottrarre al prezzo originale
             let discountPrice = 0
-            for(let i = 0; i < this.item.badges.length; i++) {
+            // ciclo l'array de
+            for (let i = 0; i < this.item.badges.length; i++) {
                 // console.log(i)
                 const currentBadge = this.item.badges[i];
                 // console.log(currentBadge) 
@@ -21,12 +24,16 @@ export default {
                     let discountValue = parseInt(currentBadge.value) * -1;
                     // console.log(discountValue);
                     discountPrice = (this.item.price / 100) * discountValue;
-                }  
+                }
                 // console.log(discountPrice)
             }
             const finalPrice = this.item.price - discountPrice;
             // console.log(finalPrice)
             return finalPrice.toFixed(2)
+        },
+        onClick() {
+            console.log(this.item.name)
+            this.$emit('show', this.item.name)
         }
     },
     created() {
@@ -45,15 +52,22 @@ export default {
             <div class="card-image-icon" :class="item.isInFavorites ? 'favourite' : ''">
                 <font-awesome-icon icon="fa-solid fa-heart" />
             </div>
-            <div class="card-image-tags" >
-                <p :class="badge.type" v-for="(badge, index) in item.badges"
-                :key="index">{{ badge.value }}</p>
+            <div class="card-image-tags">
+                <p :class="badge.type" v-for="(badge, index) in item.badges" :key="index">{{ badge.value }}</p>
             </div>
         </div>
-        <div class="card-title">
-            <p> {{ item.brand }}</p>
-            <p class="small-title">{{ item.name }}</p>
-            <p><span v-show="item.price != getDiscountedPrice()">{{ item.price }}</span><span>{{ getDiscountedPrice() }}</span></p>
+        <div class="card-text">
+            <p class="brand"> {{ item.brand }}</p>
+            <h4 class="title" @click="onClick">{{ item.name }}</h4>
+            <p class="prices">
+                 <span class="discounted-price">
+                    {{ getDiscountedPrice() }}
+                </span>
+                <span v-show="item.price != getDiscountedPrice()" class="original-price">
+                    {{ item.price }}
+                </span>
+               
+            </p>
         </div>
     </div>
 </template>
@@ -63,24 +77,40 @@ export default {
     flex-basis: calc((100% * 4) / 12);
     padding: 10px;
 }
+
 .card-image-body {
     position: relative;
+
     .card-figure {
-    position: relative;
+        position: relative;
+
         .card-a {
             position: absolute;
             top: 0;
+
             &:hover {
-            opacity: 0;
+                opacity: 0;
             }
         }
     }
+
     .favourite {
         color: red;
     }
+
+    .tag {
+        padding: 3px 10px;
+        background-color: green;
+    }
+
+    .discount {
+        padding: 3px 10px;
+        background-color: red;
+    }
+
     .card-image-icon {
         position: absolute;
-        z-index: 999;
+        z-index: 30;
         top: 5px;
         right: 0;
         background-color: white;
@@ -88,6 +118,7 @@ export default {
         display: flex;
         align-items: center;
     }
+
     .card-image-tags {
         position: absolute;
         display: flex;
@@ -98,16 +129,28 @@ export default {
         gap: 2px;
         color: white;
     }
-
-    .tag {
-        padding: 3px 10px;
-        background-color: green;
+}
+.card-text {
+    .brand {
+        font-size: 12px;
     }
-    .discount {
-        padding: 3px 10px;
-        background-color: red;
+    .title {
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 13px;
+    }
+    .prices {
+        font-size: 12px;
+        display: flex;
+        gap: 5px;
+
+        .discounted-price {
+            font-weight: bold;
+            color: red;
+        }
+        .original-price {
+            text-decoration: line-through;
+        }
     }
 }
-
-
 </style>
