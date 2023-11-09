@@ -33,7 +33,7 @@ export default {
         },
         onClick() {
             console.log(this.item.name)
-            this.$emit('show', this.item.name)
+            this.$emit('show', this.item)
         }
     },
     created() {

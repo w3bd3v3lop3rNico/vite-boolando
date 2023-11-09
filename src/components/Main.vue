@@ -10,16 +10,20 @@ export default {
     data() {
         return {
             // products: productsJson.products,
-            store : store,
+            store: store,
             open: false,
-            selectedName: {}
+            selectedItem: {}
         }
     },
     methods: {
-        showModal(name) {
-            console.log('show modal', name);
-            this.selectedName = name;
+        showModal(item) {
+            console.log('show modal', item.name);
+            this.selectedItem = item;
             this.open = true;
+        },
+        closeModal() {
+            this.open = false;
+            this.selectedItem = {};
         }
     },
     created() {
@@ -31,19 +35,18 @@ export default {
 <template>
     <div class="container">
         <div class="row">
-            <CardProduct v-for="product in store.products" 
-            :item="product"
-            :key="product.id"
-            @show="showModal"/>
+            <CardProduct v-for="product in store.products" :item="product" :key="product.id" @show="showModal" />
         </div>
     </div>
     <div class="selected-product" v-if="open">
         <div class="card">
-            <div class="close-icon">
-                <font-awesome-icon icon="fa-solid fa-circle-xmark" />
-            </div>
             <div class="card-header">
-                ciao
+                <h4>
+                    {{ selectedItem.name }}
+                </h4>
+                <div class="close-icon">
+                    <font-awesome-icon @click="closeModal" icon="fa-solid fa-circle-xmark" />
+                </div>
             </div>
         </div>
     </div>
@@ -78,7 +81,10 @@ export default {
     background-color: white;
     text-align: center;
 
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
 }
-
-
 </style>
